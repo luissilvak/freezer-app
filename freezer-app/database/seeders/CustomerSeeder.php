@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Customer;
+//use Database\Seeders\Customer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,7 +20,7 @@ class CustomerSeeder extends Seeder
 
        $users = User::factory(20)->create();
 
-       $users->each(function (User $user) use ($faker)) {
+       $users->each(function (User $user) use ($faker) {
             Customer::factory()->create([
                 'user_id' => $user->id,
                 'name' => $faker->name,
@@ -27,7 +29,7 @@ class CustomerSeeder extends Seeder
                 'email' => $faker->safeEmail,
                 'mobile' => '(98) ' . $faker->cellphone,
 
-            ])
+            ]);
        });
     }
 }
