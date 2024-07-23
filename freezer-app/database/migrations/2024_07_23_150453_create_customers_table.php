@@ -21,6 +21,7 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('document');
+            $table->date('birthdate');
             $table->string('email')->index()->unique();
             $table->string('mobile');
 
